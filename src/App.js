@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import {
   changeAppName,
   changeUserName,
-  changeAppVersion
+  changeAppVersion,
+  clearData
 } from "./store/actions";
 
 function App({
@@ -25,9 +26,10 @@ function App({
       <button onClick={(newName) => changeUserName("aftab alam")}>
         Change User
       </button>
-      <button onClick={(newVersion) => changeAppVersion('15')}>
+      <button onClick={(newVersion) => changeAppVersion("15")}>
         Change App Version
       </button>
+      <button onClick={() => clearData()}>Clear Data</button>
     </div>
   );
 }
@@ -41,7 +43,14 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   changeAppName: (newApp) => dispatch(changeAppName(newApp)),
   changeUserName: (newUser) => dispatch(changeUserName(newUser)),
-  changeAppVersion: (newVersion) => dispatch(changeAppVersion(newVersion))
+  changeAppVersion: (newVersion) => dispatch(changeAppVersion(newVersion)),
+  // FAROOQ BHAI
+  // changeAppVersion: (newVersion) => dispatch({
+  //   type:'',
+  //   payload
+  // })
+  clearData: () => dispatch(clearData())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
