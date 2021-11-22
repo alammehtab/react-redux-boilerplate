@@ -1,28 +1,47 @@
 import "./styles.css";
 import { connect } from "react-redux";
-import { changeAppName, changeUserName } from "./store/actions";
+import {
+  changeAppName,
+  changeUserName,
+  changeAppVersion
+} from "./store/actions";
 
-function App({ appName, userName, changeApp, changeUser }) {
+function App({
+  appName,
+  appVersion,
+  userName,
+  changeAppName,
+  changeAppVersion,
+  changeUserName
+}) {
   return (
     <div className="App">
-      <h1>This app is named {appName}</h1>
-      <p>This app is being used by {userName}!</p>
-      <button onClick={(newName) => changeApp("messenger")}>Change App</button>
-      <button onClick={(newName) => changeUser("aftab alam")}>
+      <h1>{appName}</h1>
+      <h1>{appVersion}</h1>
+      <h1>{userName}</h1>
+      <button onClick={(newName) => changeAppName("messenger")}>
+        Change App
+      </button>
+      <button onClick={(newName) => changeUserName("aftab alam")}>
         Change User
+      </button>
+      <button onClick={(newVersion) => changeAppVersion('15')}>
+        Change App Version
       </button>
     </div>
   );
 }
 
 const mapStateToProps = (state) => ({
-  appName: state.appReducer.appName,
-  userName: state.userReducer.userName
+  appName: state.AppReducer.appName,
+  appVersion: state.AppReducer.appVersion,
+  userName: state.UserReducer.userName
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeApp: (newName) => dispatch(changeAppName(newName)),
-  changeUser: (newName) => dispatch(changeUserName(newName))
+  changeAppName: (newApp) => dispatch(changeAppName(newApp)),
+  changeUserName: (newUser) => dispatch(changeUserName(newUser)),
+  changeAppVersion: (newVersion) => dispatch(changeAppVersion(newVersion))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
