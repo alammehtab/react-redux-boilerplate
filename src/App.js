@@ -20,13 +20,13 @@ function App({
       <h1>{appName}</h1>
       <h1>{appVersion}</h1>
       <h1>{userName}</h1>
-      <button onClick={(newName) => changeAppName("messenger")}>
+      <button onClick={() => changeAppName("messenger")}>
         Change App
       </button>
-      <button onClick={(newName) => changeUserName("aftab alam")}>
+      <button onClick={() => changeUserName("aftab alam")}>
         Change User
       </button>
-      <button onClick={(newVersion) => changeAppVersion("15")}>
+      <button onClick={() => changeAppVersion("15")}>
         Change App Version
       </button>
       <button onClick={() => clearData()}>Clear Data</button>
