@@ -13,23 +13,24 @@ function App({
   userName,
   changeAppName,
   changeAppVersion,
-  changeUserName
+  changeUserName,
+  clearData
 }) {
   return (
     <div className="App">
       <h1>{appName}</h1>
       <h1>{appVersion}</h1>
       <h1>{userName}</h1>
-      <button onClick={() => changeAppName("messenger")}>
-        Change App
+      <button onClick={() => changeAppName("messenger")}>Change App</button>
+      <button onClick={() => changeUserName("aftab alam")}>Change User</button>
+      <button onClick={() => changeAppVersion("15")}>Change App Version</button>
+      <button
+        onClick={() => {
+          clearData();
+        }}
+      >
+        Clear Data
       </button>
-      <button onClick={() => changeUserName("aftab alam")}>
-        Change User
-      </button>
-      <button onClick={() => changeAppVersion("15")}>
-        Change App Version
-      </button>
-      <button onClick={() => clearData()}>Clear Data</button>
     </div>
   );
 }
