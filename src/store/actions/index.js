@@ -1,20 +1,26 @@
 const changeAppName = (appName) => {
   return (dispatch) => {
-    return dispatch({ type: "CHANGEAPPNAME", appName: appName });
+    return dispatch({ type: "CHANGEAPPNAME", payload: appName });
   };
 };
 
 const changeUserName = (userName) => {
   return (dispatch) => {
-    return dispatch({ type: "CHANGEUSERNAME", userName: userName });
+    return dispatch({ type: "CHANGEUSERNAME", payload: userName });
   };
 };
 
-const changeAppVersion=(newVersion)=>{
-  return(dispatch)=>{
-    return dispatch({type:'CHANGEAPPVERSION',appVersion:newVersion})
-  }
-}
+const changeAppVersion = (newVersion) => {
+  return (dispatch) => {
+    return dispatch({ type: "CHANGEAPPVERSION", payload: newVersion });
+  };
+};
 
-export { changeAppName, changeUserName,changeAppVersion };
+const clearData = () => {
+  return (dispatch) => {
+    return dispatch({ type: "CLEARDATA" });
+  };
+};
+
+export { changeAppName, changeUserName, changeAppVersion, clearData };
 
