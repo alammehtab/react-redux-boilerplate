@@ -1,14 +1,14 @@
-const INITIAL_STATE = {
+const initialState = {
   userName: "mehtab alam"
 };
 
-const userReducer = (state = INITIAL_STATE, action) => {
+const UserReducer = (state = initialState, action) => {
   switch (action.type) {
     case "CHANGEUSERNAME":
-      return { ...state, userName: action.userName };
+      return { ...state, userName: action.payload };
     default:
       return state;
   }
 };
 
-export default userReducer;
+export default UserReducer;
