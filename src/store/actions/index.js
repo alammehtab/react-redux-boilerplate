@@ -10,4 +10,11 @@ const changeUserName = (userName) => {
   };
 };
 
-export { changeAppName, changeUserName };
+const changeAppVersion=(newVersion)=>{
+  return(dispatch)=>{
+    return dispatch({type:'CHANGEAPPVERSION',appVersion:newVersion})
+  }
+}
+
+export { changeAppName, changeUserName,changeAppVersion };
+
